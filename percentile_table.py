@@ -66,7 +66,6 @@ if __name__ == '__main__':
             percentile_threshold_list)
         column_names.append(f'band_{band_index+1}')
         percentile_table[column_names[-1]] = percentile_values_list
-        break
 
     LOGGER.info(f'saving to {percentile_table_path}')
     df = pandas.DataFrame.from_dict(percentile_table)
