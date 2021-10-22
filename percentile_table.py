@@ -52,7 +52,7 @@ if __name__ == '__main__':
         args.initial_stepsize)) + list(numpy.arange(
             args.percentile_stepsize, 100-args.percentile_stepsize,
             args.percentile_stepsize)) + list(numpy.arange(
-                100-args.percentile_stepsize, 100,
+                100-args.percentile_stepsize, 100+args.initial_stepsize,
                 args.initial_stepsize))
     LOGGER.info(f'percentile thresholds: {percentile_threshold_list}')
     column_names = ['percentile_thresholds']
