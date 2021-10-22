@@ -109,4 +109,10 @@ if __name__ == '__main__':
     df = pandas.DataFrame.from_dict(csv_table_dict)
     column_names = ['zone', 'min', 'max', 'mean', 'count', 'sum']
     df.to_csv(target_zonal_table, columns=column_names, index=False)
+
+    zone_band = None
+    zone_raster = None
+    clipped_value_band = None
+    clipped_raster = None
+
     shutil.rmtree(working_dir)
