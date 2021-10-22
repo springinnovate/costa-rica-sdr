@@ -50,10 +50,11 @@ if __name__ == '__main__':
     percentile_threshold_list = list(numpy.arange(
         0, args.percentile_stepsize,
         args.initial_stepsize)) + list(numpy.arange(
-            args.percentile_stepsize, 100+args.percentile_stepsize,
-            args.percentile_stepsize))
+            args.percentile_stepsize, 100-args.percentile_stepsize,
+            args.percentile_stepsize)) + list(numpy.arange(
+                100-args.percentile_stepsize, 100,
+                args.initial_stepsize))
     LOGGER.info(f'percentile thresholds: {percentile_threshold_list}')
-
     column_names = ['percentile_thresholds']
     percentile_table = {
         column_names[0]: percentile_threshold_list
@@ -69,4 +70,4 @@ if __name__ == '__main__':
 
     LOGGER.info(f'saving to {percentile_table_path}')
     df = pandas.DataFrame.from_dict(percentile_table)
-    df.to_csv(percentile_table_path, columns=column_names)
+    df.to_csv(percentile_table_path, columns=column_names, index=False)
