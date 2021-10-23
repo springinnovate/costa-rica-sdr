@@ -113,6 +113,9 @@ if __name__ == '__main__':
     zone_band = None
     zone_raster = None
     clipped_value_band = None
-    clipped_raster = None
+    clipped_value_raster = None
 
-    shutil.rmtree(working_dir)
+    try:
+        shutil.rmtree(working_dir)
+    except Exception:
+        LOGGER.exception(f'could not clean up {working_dir}')
